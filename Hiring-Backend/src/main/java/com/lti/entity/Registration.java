@@ -38,4 +38,5 @@ public class Registration {
 	@Column(name="skill_set")
 	private String skillSet;
 
+	private long checking;
 }

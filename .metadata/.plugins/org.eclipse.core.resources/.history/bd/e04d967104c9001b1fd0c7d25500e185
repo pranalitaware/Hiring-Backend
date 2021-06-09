@@ -1,0 +1,5 @@
+package com.lti.enums;
+
+public class Level {
+	L1,L2,L3;
+}

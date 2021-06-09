@@ -1,0 +1,16 @@
+package com.lti.entity;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+
+public class RateCandidate {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq2")
+	@SequenceGenerator(sequenceName = "ref_seq2", initialValue = 1, allocationSize = 1, name="seq2")	
+	@Column(name="rid")
+	private long rid;
+}

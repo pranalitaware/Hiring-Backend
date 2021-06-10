@@ -2,17 +2,22 @@ package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="tbl_login_detail")
 public class Login {
 
-	@Column(name="uid")
-	private long uid;
+	@OneToOne
+	@JoinColumn(name="uid")
+	private Registration registration;
 	
-	@Column(name="username")
-	private String username;
+	@Id	
+	@Column(name="customer_id")
+	private long customerId;
 	
 	@Column(name="password")
 	private String password;

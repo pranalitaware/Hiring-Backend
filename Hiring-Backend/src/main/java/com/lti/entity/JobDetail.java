@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,4 +29,4 @@ public class JobDetail {
 	
 	@Column(name="skill_set")
 	private String skillSet;
-}
+}*/

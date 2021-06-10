@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,4 +37,4 @@ public class RateCandidate {
 	private Level level;
 	
 	
-}
+}*/

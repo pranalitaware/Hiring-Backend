@@ -1,10 +1,6 @@
 package com.lti.repository;
 
-import com.lti.entity.Registration;
-
-import java.util.List;
-
-public class CustomerRepository extends GenericRepository {
+public class UserRepository extends GenericRepository {
 
 	public boolean isUserPresent(long userId) {
 		return (Long)
@@ -24,27 +20,7 @@ public class CustomerRepository extends GenericRepository {
 				.getSingleResult();
 	}
 	
-	public List<Registration> fetchRegistrationRequestForAdmin() {
-		List<Registration> resultList = (List<Registration>)
-				entityManager
-				.createQuery("select r from Registration r")
-				.getResultList();
-		return resultList;
-	}
-
-	public Registration fetchRegistrationFileForAdmin(Long userId) {
-		Registration result = (Registration)
-				entityManager
-				.createQuery("select r from Registration r where r.userId = :uid ")
-				.setParameter("uid",userId)
-				.getSingleResult() ;
-		return result;
-	}
-
-	public void deleteById(Registration reg) {
-		entityManager.remove(reg);
-	}
-
+	
 	public void insertIntoLogin(long registration, long customerId, String password) {
 
 		entityManager
@@ -54,5 +30,7 @@ public class CustomerRepository extends GenericRepository {
 		.setParameter(3, password)
 		.executeUpdate();
 	}
+	
+	
 
 }

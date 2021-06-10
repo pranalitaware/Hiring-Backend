@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -9,4 +9,4 @@ public class AppliedJob {
 
 	private long uid;
 	private long jid;
-}
+}*/

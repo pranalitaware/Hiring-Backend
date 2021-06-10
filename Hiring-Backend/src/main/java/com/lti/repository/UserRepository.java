@@ -1,12 +1,15 @@
 package com.lti.repository;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class UserRepository extends GenericRepository {
 
-	public boolean isUserPresent(long userId) {
+	public boolean isUserPresent(long mobileNo) {
 		return (Long)
 				entityManager
-				.createQuery( "select count(r.userId) from Registration r where r.userId = :id")
-				.setParameter("id",userId)
+				.createQuery( "select count(r.mobileNo) from Registration r where r.mobileNo = :mob")
+				.setParameter("mob",mobileNo)
 				.getSingleResult() == 1 ? true : false;
 
 	}

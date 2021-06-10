@@ -18,7 +18,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public long register(Registration user) {
-		if(userRepository.isUserPresent(user.getUserId()))
+		if(userRepository.isUserPresent(user.getMobileNo()))
 			throw new ServiceException("user already registered !");
 		else {
 			Registration updateuser = (Registration) userRepository.save(user);

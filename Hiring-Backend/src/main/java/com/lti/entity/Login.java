@@ -12,14 +12,14 @@ import javax.persistence.Table;
 public class Login {
 
 	@OneToOne
-	@JoinColumn(name="uid")
+	@JoinColumn(name="user_id")
 	private Registration registration;
 	
 	@Id	
 	@Column(name="customer_id")
 	private long customerId;
 	
-	@Column(name="password")
+	@Column(name="user_password")
 	private String password;
 
 	public Registration getRegistration() {

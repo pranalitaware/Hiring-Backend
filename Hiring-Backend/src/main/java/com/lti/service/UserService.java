@@ -1,12 +1,17 @@
 package com.lti.service;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Service;
 
 import com.lti.entity.Login;
 import com.lti.entity.Registration;
 import com.lti.repository.UserRepository;
 
+@Service
+@Transactional
 public class UserService {
 	
 	@Autowired

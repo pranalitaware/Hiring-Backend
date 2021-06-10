@@ -45,9 +45,6 @@ public class Registration {
 	@Column(name="dob")
 	private LocalDate dateOfBirth;
 	
-	@Column(name="skill_set")
-	private String skillSet;
-
 	@Column(name="resume")
 	private String resume;
 	
@@ -116,14 +113,6 @@ public class Registration {
 
 	public void setDateOfBirth(LocalDate dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	public String getSkillSet() {
-		return skillSet;
-	}
-
-	public void setSkillSet(String skillSet) {
-		this.skillSet = skillSet;
 	}
 
 	public String getResume() {

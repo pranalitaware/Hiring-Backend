@@ -1,4 +1,4 @@
-/*package com.lti.controller;
+package com.lti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -6,9 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lti.entity.Login;
-import com.lti.entity.Registration;
-import com.lti.model.RegisterStatus;
+import com.lti.entity.Candidate;
+import com.lti.model.CandidateStatus;
 import com.lti.model.Status;
 import com.lti.repository.UserRepository;
 import com.lti.service.ServiceException;
@@ -24,43 +23,23 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@PostMapping("/register")
-	public RegisterStatus register(@RequestBody Registration user) {
+	@PostMapping("/candidate")
+	public CandidateStatus addCandidate(@RequestBody Candidate candidate) {
 
 		try {
 
-			long id = userService.register(user);
-			RegisterStatus regStatus = new RegisterStatus();
-			regStatus.setStatus(true);
-			regStatus.setMessage("Registration successfull!!!");
-			regStatus.setUserId(id);
-			return regStatus;
+			long cid = userService.addCandidate(candidate);
+			CandidateStatus canStatus = new CandidateStatus();
+			canStatus.setStatus(true);
+			canStatus.setMessage("Candidate added!!!");
+			canStatus.setCid(cid);
+			return canStatus;
 		}
 		catch(ServiceException e) {
-			RegisterStatus regStatus = new RegisterStatus();
-			regStatus.setStatus(false);
-			regStatus.setMessage(e.getMessage());
-			return regStatus;
-		}
-	}
-
-	@PostMapping("/userlogin")
-	public Status login(@RequestBody Login login) {
-		try {
-			
-			Login loginDetails = userService.login(login.getCustomerId(), login.getPassword());
-			Status loginStatus = new Status();
-			loginStatus.setStatus(true);
-			loginStatus.setMessage("Login successful!");
-			
-			return loginStatus;
-		}
-		catch(ServiceException e) {
-			Status loginStatus = new Status();
-			loginStatus.setStatus(false);
-			loginStatus.setMessage(e.getMessage());		
-			return loginStatus;
+			CandidateStatus canStatus = new CandidateStatus();
+			canStatus.setStatus(false);
+			canStatus.setMessage(e.getMessage());
+			return canStatus;
 		}
 	}
 }
-*/

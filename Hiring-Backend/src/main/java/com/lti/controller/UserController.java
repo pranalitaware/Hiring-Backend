@@ -1,7 +1,10 @@
 package com.lti.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,5 +56,22 @@ public class UserController {
 		panStatus.setMessage("Panellist added");
 		
 		return panStatus;
+	}
+	
+	@GetMapping("/fetchAllCandidates")
+	public List<Candidate> fetchAllCandidates(){
+		try {
+			List<Candidate> list = userService.fetchAllCandidates();
+			Status status = new Status();
+			status.setStatus(true);
+			status.setMessage("fetched all candidates");
+			return list;
+		}
+		catch(ServiceException e){
+			Status status = new Status();
+			status.setStatus(false);
+			status.setMessage(e.getMessage());
+			return list;
+		}
 	}
 }

@@ -1,5 +1,7 @@
 package com.lti.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,10 @@ public class UserService {
 	
 	public void addPanellist(Panellist panellist) {
 		userRepository.save(panellist);
+	}
+
+	public List<Candidate> fetchAllCandidates() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

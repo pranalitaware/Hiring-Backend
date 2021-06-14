@@ -7,6 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Candidate;
+import com.lti.entity.Panellist;
 import com.lti.repository.UserRepository;
 
 @Service
@@ -25,4 +26,7 @@ public class UserService {
 		}
 	}
 	
+	public void addPanellist(Panellist panellist) {
+		userRepository.save(panellist);
+	}
 }

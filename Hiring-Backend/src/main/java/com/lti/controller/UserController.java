@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Candidate;
+import com.lti.entity.Panellist;
 import com.lti.model.CandidateStatus;
 import com.lti.model.Status;
 import com.lti.repository.UserRepository;
@@ -41,5 +42,16 @@ public class UserController {
 			canStatus.setMessage(e.getMessage());
 			return canStatus;
 		}
+	}
+	
+	@PostMapping("/panellist")
+	public Status addPanellist(@RequestBody Panellist panellist) {
+		
+		userService.addPanellist(panellist);
+		Status panStatus = new Status();
+		panStatus.setStatus(true);
+		panStatus.setMessage("Panellist added");
+		
+		return panStatus;
 	}
 }

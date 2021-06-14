@@ -1,5 +1,6 @@
 package com.lti.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Candidate;
 import com.lti.entity.Panellist;
+import com.lti.model.CanListStatus;
 import com.lti.model.CandidateStatus;
 import com.lti.model.Status;
 import com.lti.repository.UserRepository;
@@ -57,21 +59,33 @@ public class UserController {
 		
 		return panStatus;
 	}
-	
+	/*
 	@GetMapping("/fetchAllCandidates")
-	public List<Candidate> fetchAllCandidates(){
+	public List<CanListStatus> fetchAllCandidates(){
 		try {
-			List<Candidate> list = userService.fetchAllCandidates();
-			Status status = new Status();
-			status.setStatus(true);
-			status.setMessage("fetched all candidates");
-			return list;
+			List<Candidate> canList = userService.fetchAllCandidates();
+			List<CanListStatus> canListStatus = new ArrayList<CanListStatus>();
+			
+			for(Candidate c : canList) {
+				CanListStatus canStatus = new CanListStatus();
+				canStatus.setStatus(true);
+				canStatus.setMessage("Candidate list retrived");
+				canStatus.setCid(c.getCid());
+				canStatus.setFirstName(c.getFirstName());
+				canStatus.setMiddleName(c.getMiddleName());
+				canStatus.setLastName(c.getLastName());
+				canStatus.setMobileNo(c.getMobileNo());
+				canStatus.setEmailId(c.getEmailId());
+				canStatus.setDateOfBirth(c.getDateOfBirth());
+				canStatus.setResume(c.getResume());
+				canStatus.setFeedback(c.getFeedback());
+				canStatus.setRating(c.getRating());
+				canStatus.setSelStatus(c.getSelStatus());
+				
+			}
 		}
 		catch(ServiceException e){
-			Status status = new Status();
-			status.setStatus(false);
-			status.setMessage(e.getMessage());
-			return list;
+			
 		}
-	}
+	}*/
 }

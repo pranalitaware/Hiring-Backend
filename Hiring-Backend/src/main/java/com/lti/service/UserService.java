@@ -33,7 +33,12 @@ public class UserService {
 	}
 
 	public List<Candidate> fetchAllCandidates() {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			List<Candidate> canList = userRepository.fetchAllCandidates();
+			return canList;
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new ServiceException("No entries for candidates !!");
+		}
 	}
 }

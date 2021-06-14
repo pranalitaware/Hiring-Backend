@@ -8,24 +8,22 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-import com.lti.enums.Title;
+import com.lti.enums.SelStatus;
 
 @Entity
-@Table(name="tbl_registration_hire")
-public class Registration {
+@Table(name="tbl_candidate")
+public class Candidate {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq1")
 	@SequenceGenerator(sequenceName = "ref_seq1", initialValue = 1, allocationSize = 1, name="seq1")	
-	@Column(name="user_id")
-	private long userId;
-	
-	@Column(name="title")
-	private Title title;
+	@Column(name="c_id")
+	private long cid;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -48,23 +46,29 @@ public class Registration {
 	@Column(name="resume")
 	private String resume;
 	
-	@OneToOne(mappedBy = "registration",cascade = CascadeType.ALL)
-	private Login login;
+	@Column(name="feedback")
+	private String feedback;
+	
+	@Column(name="rating")
+	private long rating;
+	
+	@Column(name="status")
+	private SelStatus selStatus;
+	
+	@Column(name="levels")
+	private long level;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="p_id")
+	private Panellist panellist;
 
-	public long getUserId() {
-		return userId;
+	public long getCid() {
+		return cid;
 	}
 
-	public void setUserId(long userId) {
-		this.userId = userId;
-	}
-
-	public Title getTitle() {
-		return title;
-	}
-
-	public void setTitle(Title title) {
-		this.title = title;
+	public void setCid(long cid) {
+		this.cid = cid;
 	}
 
 	public String getFirstName() {
@@ -123,11 +127,44 @@ public class Registration {
 		this.resume = resume;
 	}
 
-	public Login getLogin() {
-		return login;
+	public String getFeedback() {
+		return feedback;
 	}
 
-	public void setLogin(Login login) {
-		this.login = login;
+	public void setFeedback(String feedback) {
+		this.feedback = feedback;
 	}
+
+	public long getRating() {
+		return rating;
+	}
+
+	public void setRating(long rating) {
+		this.rating = rating;
+	}
+
+	public SelStatus getSelStatus() {
+		return selStatus;
+	}
+
+	public void setSelStatus(SelStatus selStatus) {
+		this.selStatus = selStatus;
+	}
+
+	public long getLevel() {
+		return level;
+	}
+
+	public void setLevel(long level) {
+		this.level = level;
+	}
+
+	public Panellist getPanellist() {
+		return panellist;
+	}
+
+	public void setPanellist(Panellist panellist) {
+		this.panellist = panellist;
+	}
+	
 }

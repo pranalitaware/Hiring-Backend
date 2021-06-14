@@ -1,4 +1,4 @@
-package com.lti.repository;
+/*package com.lti.repository;
 
 import java.util.List;
 
@@ -30,3 +30,4 @@ public class AdminRepository extends GenericRepository{
 		entityManager.remove(reg);
 	}
 }
+*/

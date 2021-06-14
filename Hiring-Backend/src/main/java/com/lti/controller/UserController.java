@@ -1,4 +1,4 @@
-package com.lti.controller;
+/*package com.lti.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -63,3 +63,4 @@ public class UserController {
 		}
 	}
 }
+*/

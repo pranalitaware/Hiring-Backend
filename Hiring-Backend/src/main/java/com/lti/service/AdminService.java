@@ -1,4 +1,4 @@
-package com.lti.service;
+/*package com.lti.service;
 
 import java.util.List;
 
@@ -29,3 +29,4 @@ public class AdminService {
 		}
 	}
 }
+*/

@@ -41,4 +41,24 @@ public class UserService {
 			throw new ServiceException("No entries for candidates !!");
 		}
 	}
+
+	public Candidate getCandidateById(long cid) {
+		Candidate candidate = userRepository.fetchCandidateById(cid);
+		return candidate;
+	}
+
+	public Candidate getCandidateByName(String firstName) {
+		Candidate candidate = userRepository.fetchCandidateByName(firstName);
+		return candidate;
+	}
+
+	public Panellist getPanellistById(long pid) {
+		Panellist panellist = userRepository.fetchPanellistById(pid);
+		return panellist;
+	}
+	
+	public Panellist getPanellistByName(String firstName) {
+		Panellist panellist = userRepository.fetchPanellistByName(firstName);
+		return panellist;
+	}
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Candidate;
@@ -59,7 +60,7 @@ public class UserController {
 		
 		return panStatus;
 	}
-	/*
+	
 	@GetMapping("/fetchAllCandidates")
 	public List<CanListStatus> fetchAllCandidates(){
 		try {
@@ -81,11 +82,62 @@ public class UserController {
 				canStatus.setFeedback(c.getFeedback());
 				canStatus.setRating(c.getRating());
 				canStatus.setSelStatus(c.getSelStatus());
+				canStatus.setLevel(c.getLevel());
+				canStatus.setPanellist(c.getPanellist());
 				
+				canListStatus.add(canStatus);
 			}
+			
+			return canListStatus;
 		}
 		catch(ServiceException e){
+			List<CanListStatus> canListStatus = new ArrayList<CanListStatus>();
+			CanListStatus canStatus = new CanListStatus();
+			canStatus.setStatus(false);
+			canStatus.setMessage("Candidate list empty");
 			
+			canListStatus.add(canStatus);
+			return canListStatus;	
 		}
-	}*/
+	}
+	
+	@GetMapping("/searchCandidateId")
+	public Candidate searchCanById(@RequestParam ("cid") long cid) {
+		try {
+			Candidate candidate = userService.getCandidateById(cid);
+			CanListStatus canListStatus = new CanListStatus();
+			canListStatus.setStatus(true);
+			canListStatus.setMessage("Candidate Present");
+			return candidate;
+		}
+		catch(ServiceException e) {
+			Candidate candidate = userService.getCandidateById(cid);
+			CanListStatus canListStatus = new CanListStatus();
+			canListStatus.setStatus(false);
+			canListStatus.setMessage("Candidate not present");
+			return candidate;
+		}
+	}
+	
+	@GetMapping("/searchCandidateName")
+	public Candidate searchCanByName(@RequestParam ("firstName") String firstName) {
+
+			Candidate candidate = userService.getCandidateByName(firstName);
+			return candidate;
+	}
+	
+	@GetMapping("/searchPanellistId")
+	public Panellist searchPanById(@RequestParam ("pid") long pid) {
+		
+			Panellist panellist = userService.getPanellistById(pid);
+			return panellist;
+	}
+	
+	@GetMapping("/searchPanellistName")
+	public Panellist searchPanByName(@RequestParam ("firstName") String firstName) {
+
+			Panellist panellist = userService.getPanellistByName(firstName);
+			return panellist;
+	}
+
 }

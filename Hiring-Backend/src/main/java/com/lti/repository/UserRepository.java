@@ -49,4 +49,12 @@ public class UserRepository extends GenericRepository {
 				.setParameter("fn", firstName)
 				.getSingleResult();
 	}
+
+	public void linkCanPan(long cid, long pid) {
+		entityManager
+		.createNativeQuery("update tbl_candidate set p_id=? where c_id=?")
+		.setParameter(1, pid)
+		.setParameter(2, cid)
+		.executeUpdate();
+	}
 }

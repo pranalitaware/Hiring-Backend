@@ -61,4 +61,8 @@ public class UserService {
 		Panellist panellist = userRepository.fetchPanellistByName(firstName);
 		return panellist;
 	}
+
+	public void linkCanPan(long cid, long pid) {
+		userRepository.linkCanPan(cid, pid);
+	}
 }

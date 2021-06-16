@@ -139,5 +139,10 @@ public class UserController {
 			Panellist panellist = userService.getPanellistByName(firstName);
 			return panellist;
 	}
-
+	
+	@GetMapping("/linkCandidatePanellist")
+	public void linkCanPan(@RequestParam ("cid") long cid, @RequestParam long pid) {
+		
+			userService.linkCanPan(cid,pid);
+	}
 }

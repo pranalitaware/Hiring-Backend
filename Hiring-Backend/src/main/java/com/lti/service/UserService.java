@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.lti.entity.Candidate;
 import com.lti.entity.Panellist;
+import com.lti.enums.SelStatus;
 import com.lti.repository.UserRepository;
 
 @Service
@@ -64,5 +65,16 @@ public class UserService {
 
 	public void linkCanPan(long cid, long pid) {
 		userRepository.linkCanPan(cid, pid);
+	}
+
+	public long addCandidateDetail(long cid, long rating, String feedback, SelStatus selStatus) {
+		Candidate candidate = userRepository.find(Candidate.class, cid);
+		candidate.setRating(rating);
+		candidate.setFeedback(feedback);
+		candidate.setSelStatus(selStatus);
+		
+		userRepository.save(candidate);
+		
+		return cid;	
 	}
 }

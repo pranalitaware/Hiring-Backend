@@ -24,11 +24,12 @@ import com.lti.service.UserService;
 @CrossOrigin
 public class UserController {
 
-	@Autowired
-	private UserRepository userRepository;
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private UserRepository UserRepository;
 	
 	@PostMapping("/candidate")
 	public CandidateStatus addCandidate(@RequestBody Candidate candidate) {
@@ -145,4 +146,23 @@ public class UserController {
 		
 			userService.linkCanPan(cid,pid);
 	}
+	
+	@PostMapping("/addCandidateDetail")
+	public CandidateStatus addCandidateDetail(@RequestBody Candidate candidate) {
+	
+		try {
+			long cid = userService.addCandidateDetail(candidate.getCid(),candidate.getRating(),candidate.getFeedback(),candidate.getSelStatus());
+			CandidateStatus canStatus = new CandidateStatus();
+			canStatus.setStatus(true);
+			canStatus.setMessage("Details saved successfully!!!");
+			canStatus.setCid(cid);
+			return canStatus;
+		}
+		catch(ServiceException e) {
+			CandidateStatus canStatus = new CandidateStatus();
+			canStatus.setStatus(false);
+			canStatus.setMessage(e.getMessage());
+			return canStatus;
+		}
+	} 
 }

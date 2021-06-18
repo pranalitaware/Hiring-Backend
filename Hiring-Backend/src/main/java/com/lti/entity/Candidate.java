@@ -21,7 +21,7 @@ public class Candidate {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq1")
-	@SequenceGenerator(sequenceName = "ref_seq1", initialValue = 1, allocationSize = 1, name="seq1")	
+	@SequenceGenerator(sequenceName = "ref_seq1", initialValue = 10004000, allocationSize = 1, name="seq1")	
 	@Column(name="c_id")
 	private long cid;
 	
@@ -58,6 +58,8 @@ public class Candidate {
 	@Column(name="levels")
 	private long level;
 	
+	@Column(name="skills")
+	private String skills;
 	
 	@ManyToOne
 	@JoinColumn(name="p_id")

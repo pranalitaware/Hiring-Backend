@@ -20,7 +20,7 @@ public class Panellist {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq2")
-	@SequenceGenerator(sequenceName = "ref_seq2", initialValue = 1, allocationSize = 1, name="seq2")	
+	@SequenceGenerator(sequenceName = "ref_seq2", initialValue = 10008000, allocationSize = 1, name="seq2")	
 	@Column(name="p_id")
 	private long pid;
 	

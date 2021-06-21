@@ -15,5 +15,13 @@ public class Interview {
 	@EmbeddedId
 	@Column(name="int_id")
 	private Compound intId;
+
+	public Compound getIntId() {
+		return intId;
+	}
+
+	public void setIntId(Compound intId) {
+		this.intId = intId;
+	}
 	
 }

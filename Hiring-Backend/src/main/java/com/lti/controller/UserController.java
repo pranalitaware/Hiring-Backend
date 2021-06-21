@@ -12,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Candidate;
+import com.lti.entity.Interview;
 import com.lti.entity.Panellist;
 import com.lti.model.CanListStatus;
 import com.lti.model.CandidateStatus;
+import com.lti.model.IntStatus;
 import com.lti.model.Status;
 import com.lti.service.ServiceException;
 import com.lti.service.UserService;
@@ -160,5 +162,24 @@ public class UserController {
 			canStatus.setMessage(e.getMessage());
 			return canStatus;
 		}
-	} 
+	}
+	
+	@PostMapping("/mapCanPan")
+	public IntStatus mapCanPan(@RequestBody Interview interview) {
+		
+		try {
+			userService.mapCanPan(interview);
+			IntStatus intStatus = new IntStatus();
+			intStatus.setMessage("compound key added");
+			intStatus.setStatus(true);
+			return intStatus;
+		}
+		catch(ServiceException e){
+			IntStatus intStatus = new IntStatus();
+			intStatus.setMessage(e.getMessage());
+			intStatus.setStatus(false);
+			return intStatus;
+		}
+		
+	}
 }

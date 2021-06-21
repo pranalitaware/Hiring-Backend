@@ -16,7 +16,6 @@ import com.lti.entity.Panellist;
 import com.lti.model.CanListStatus;
 import com.lti.model.CandidateStatus;
 import com.lti.model.Status;
-import com.lti.repository.UserRepository;
 import com.lti.service.ServiceException;
 import com.lti.service.UserService;
 
@@ -28,8 +27,6 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@Autowired
-	private UserRepository UserRepository;
 	
 	@PostMapping("/candidate")
 	public CandidateStatus addCandidate(@RequestBody Candidate candidate) {
@@ -84,7 +81,6 @@ public class UserController {
 				canStatus.setRating(c.getRating());
 				canStatus.setSelStatus(c.getSelStatus());
 				canStatus.setLevel(c.getLevel());
-				canStatus.setPanellist(c.getPanellist());
 				
 				canListStatus.add(canStatus);
 			}

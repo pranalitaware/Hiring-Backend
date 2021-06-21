@@ -8,8 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -61,9 +60,8 @@ public class Candidate {
 	@Column(name="skills")
 	private String skills;
 	
-	@ManyToOne
-	@JoinColumn(name="p_id")
-	private Panellist panellist;
+	@OneToOne(mappedBy = "intId.candidate",cascade = CascadeType.ALL)
+	private Interview interview;
 
 	public long getCid() {
 		return cid;
@@ -161,12 +159,19 @@ public class Candidate {
 		this.level = level;
 	}
 
-	public Panellist getPanellist() {
-		return panellist;
+	public String getSkills() {
+		return skills;
 	}
 
-	public void setPanellist(Panellist panellist) {
-		this.panellist = panellist;
+	public void setSkills(String skills) {
+		this.skills = skills;
 	}
-	
+
+	public Interview getInterview() {
+		return interview;
+	}
+
+	public void setInterview(Interview interview) {
+		this.interview = interview;
+	}
 }

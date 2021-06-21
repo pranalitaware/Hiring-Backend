@@ -1,15 +1,11 @@
 package com.lti.entity;
 
-import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -36,8 +32,8 @@ public class Panellist {
 	@Column(name="grade")
 	private String grade;
 
-	@OneToMany(mappedBy = "panellist",cascade = CascadeType.ALL)
-	private List<Candidate> candidates;
+	@OneToOne(mappedBy = "intId.panellist",cascade = CascadeType.ALL)
+	private Interview interview;
 
 	public long getPid() {
 		return pid;
@@ -79,12 +75,12 @@ public class Panellist {
 		this.grade = grade;
 	}
 
-	public List<Candidate> getCandidates() {
-		return candidates;
+	public Interview getInterview() {
+		return interview;
 	}
 
-	public void setCandidates(List<Candidate> candidates) {
-		this.candidates = candidates;
+	public void setInterview(Interview interview) {
+		this.interview = interview;
 	}
 	
 }

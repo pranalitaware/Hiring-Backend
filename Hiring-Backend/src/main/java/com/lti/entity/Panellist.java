@@ -32,8 +32,8 @@ public class Panellist {
 	@Column(name="grade")
 	private String grade;
 
-	@OneToOne(mappedBy = "intId.panellist",cascade = CascadeType.ALL)
-	private Interview interview;
+	//@OneToOne(mappedBy = "intId.panellist",cascade = CascadeType.ALL)
+	//private Interview interview;
 
 	public long getPid() {
 		return pid;
@@ -75,12 +75,12 @@ public class Panellist {
 		this.grade = grade;
 	}
 
-	public Interview getInterview() {
+	/*public Interview getInterview() {
 		return interview;
 	}
 
 	public void setInterview(Interview interview) {
 		this.interview = interview;
-	}
+	}*/
 	
 }

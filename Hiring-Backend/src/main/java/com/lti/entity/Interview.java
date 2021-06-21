@@ -1,4 +1,4 @@
-package com.lti.entity;
+/*package com.lti.entity;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -24,4 +24,4 @@ public class Interview {
 		this.intId = intId;
 	}
 	
-}
+}*/

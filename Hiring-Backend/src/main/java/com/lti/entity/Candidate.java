@@ -60,8 +60,8 @@ public class Candidate {
 	@Column(name="skills")
 	private String skills;
 	
-	@OneToOne(mappedBy = "intId.candidate",cascade = CascadeType.ALL)
-	private Interview interview;
+	//@OneToOne(mappedBy = "intId.candidate",cascade = CascadeType.ALL)
+	//private Interview interview;
 
 	public long getCid() {
 		return cid;
@@ -167,11 +167,11 @@ public class Candidate {
 		this.skills = skills;
 	}
 
-	public Interview getInterview() {
+	/*public Interview getInterview() {
 		return interview;
 	}
 
 	public void setInterview(Interview interview) {
 		this.interview = interview;
-	}
+	}*/
 }

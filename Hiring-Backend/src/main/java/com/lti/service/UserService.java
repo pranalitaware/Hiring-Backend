@@ -9,7 +9,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.lti.entity.Candidate;
-import com.lti.entity.Interview;
+//import com.lti.entity.Interview;
 import com.lti.entity.Panellist;
 import com.lti.enums.SelStatus;
 import com.lti.repository.UserRepository;
@@ -79,9 +79,9 @@ public class UserService {
 		return cid;	
 	}
 
-	public void mapCanPan(Interview interview) {
+/*	public void mapCanPan(Interview interview) {
 
 		userRepository.save(interview);
-	}
+	}*/
 
 }

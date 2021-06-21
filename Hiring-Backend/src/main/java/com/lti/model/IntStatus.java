@@ -1,4 +1,4 @@
-package com.lti.model;
+/*package com.lti.model;
 
 import com.lti.compoundKey.Compound;
 
@@ -13,4 +13,4 @@ public class IntStatus extends Status {
 	public void setIntId(Compound intId) {
 		this.intId = intId;
 	}
-}
+}*/

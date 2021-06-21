@@ -1,4 +1,4 @@
-package com.lti.compoundKey;
+/*package com.lti.compoundKey;
 
 import java.io.Serializable;
 
@@ -35,4 +35,4 @@ public class Compound implements Serializable {
 		this.candidate = candidate;
 	}
 	
-}
+}*/

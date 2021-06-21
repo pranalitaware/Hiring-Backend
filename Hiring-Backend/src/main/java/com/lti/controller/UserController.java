@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.lti.entity.Candidate;
-import com.lti.entity.Interview;
+//import com.lti.entity.Interview;
 import com.lti.entity.Panellist;
 import com.lti.model.CanListStatus;
 import com.lti.model.CandidateStatus;
-import com.lti.model.IntStatus;
+//import com.lti.model.IntStatus;
 import com.lti.model.Status;
 import com.lti.service.ServiceException;
 import com.lti.service.UserService;
@@ -164,7 +164,7 @@ public class UserController {
 		}
 	}
 	
-	@PostMapping("/mapCanPan")
+/*	@PostMapping("/mapCanPan")
 	public IntStatus mapCanPan(@RequestBody Interview interview) {
 		
 		try {
@@ -181,5 +181,5 @@ public class UserController {
 			return intStatus;
 		}
 		
-	}
+	}*/
 }

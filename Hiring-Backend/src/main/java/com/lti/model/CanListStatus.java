@@ -1,6 +1,8 @@
 package com.lti.model;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
@@ -24,7 +26,7 @@ public class CanListStatus extends Status {
 	private double rating;
 	private SelStatus selStatus;
 	private long level;
-	private String[] skills;
+	private List<String> skills = new ArrayList<String>();
 	//private Panellist panellist;
 	
 	
@@ -107,10 +109,10 @@ public class CanListStatus extends Status {
 	public void setPanellist(Panellist panellist) {
 		this.panellist = panellist;
 	}*/
-	public String[] getSkills() {
+	public List<String> getSkills() {
 		return skills;
 	}
-	public void setSkills(String[] skills) {
+	public void setSkills(List<String> skills) {
 		this.skills = skills;
 	}
 }

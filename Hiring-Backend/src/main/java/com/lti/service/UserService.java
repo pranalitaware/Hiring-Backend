@@ -20,6 +20,9 @@ public class UserService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	EmailService emailService;
 
 	public long addCandidate(Candidate candidate) {
 		if(userRepository.isUserPresent(candidate.getMobileNo()))
@@ -77,6 +80,22 @@ public class UserService {
 		userRepository.save(candidate);
 		
 		return cid;	
+	}
+
+	public void sendMail(long cid, String roomId) {
+		try {
+		Candidate candidate = userRepository.find(Candidate.class, cid);
+		String subject = "Interview Started";
+		String text = "Hi " + candidate.getFirstName() + " " + candidate.getLastName()
+		+" Your interview has been started, click this link to join the room of your interview  "
+		+ roomId
+		+ "\nThank you!";
+		
+		emailService.sendEmail(candidate.getEmailId(), text, subject);
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new ServiceException("No rows ");
+		}
 	}
 
 /*	public void mapCanPan(Interview interview) {

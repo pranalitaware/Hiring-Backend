@@ -83,6 +83,7 @@ public class UserController {
 				canStatus.setRating(c.getRating());
 				canStatus.setSelStatus(c.getSelStatus());
 				canStatus.setLevel(c.getLevel());
+				canStatus.setSkills(c.getSkills());
 				
 				canListStatus.add(canStatus);
 			}
@@ -182,4 +183,23 @@ public class UserController {
 		}
 		
 	}*/
+	
+	@GetMapping("/sendMail")
+	public Status sendMail (@RequestParam ("cid") long cid, @RequestParam ("roomId") String roomId) {
+		
+		try {
+			userService.sendMail(cid,roomId);
+			Status status = new Status();
+			status.setMessage("Mail sent successfully!!");
+			status.setStatus(true);
+			return status;
+		}
+		catch(ServiceException e) {
+			Status status = new Status();
+			status.setMessage(e.getMessage());
+			status.setStatus(false);
+			return status;
+		}
+		
+	}
 }

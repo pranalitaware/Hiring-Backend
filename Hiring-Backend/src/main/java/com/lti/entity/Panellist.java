@@ -31,6 +31,9 @@ public class Panellist {
 	
 	@Column(name="grade")
 	private String grade;
+	
+	@Column(name="pswd")
+	private String password;
 
 	//@OneToOne(mappedBy = "intId.panellist",cascade = CascadeType.ALL)
 	//private Interview interview;
@@ -75,6 +78,13 @@ public class Panellist {
 		this.grade = grade;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	/*public Interview getInterview() {
 		return interview;
 	}

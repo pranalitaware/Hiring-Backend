@@ -21,10 +21,11 @@ public class CanListStatus extends Status {
 	private LocalDate dateOfBirth;
 	private String resume;
 	private String feedback;
-	private long rating;
+	private double rating;
 	private SelStatus selStatus;
 	private long level;
-	private Panellist panellist;
+	private String[] skills;
+	//private Panellist panellist;
 	
 	
 	public long getCid() {
@@ -81,10 +82,11 @@ public class CanListStatus extends Status {
 	public void setFeedback(String feedback) {
 		this.feedback = feedback;
 	}
-	public long getRating() {
+	
+	public double getRating() {
 		return rating;
 	}
-	public void setRating(long rating) {
+	public void setRating(double rating) {
 		this.rating = rating;
 	}
 	public SelStatus getSelStatus() {
@@ -99,10 +101,16 @@ public class CanListStatus extends Status {
 	public void setLevel(long level) {
 		this.level = level;
 	}
-	public Panellist getPanellist() {
+	/*public Panellist getPanellist() {
 		return panellist;
 	}
 	public void setPanellist(Panellist panellist) {
 		this.panellist = panellist;
+	}*/
+	public String[] getSkills() {
+		return skills;
+	}
+	public void setSkills(String[] skills) {
+		this.skills = skills;
 	}
 }

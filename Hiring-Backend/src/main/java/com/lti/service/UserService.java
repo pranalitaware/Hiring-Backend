@@ -68,7 +68,7 @@ public class UserService {
 		userRepository.linkCanPan(cid, pid);
 	}
 
-	public long addCandidateDetail(long cid, long rating, String feedback, SelStatus selStatus) {
+	public long addCandidateDetail(long cid, double rating, String feedback, SelStatus selStatus) {
 		Candidate candidate = userRepository.find(Candidate.class, cid);
 		candidate.setRating(rating);
 		candidate.setFeedback(feedback);

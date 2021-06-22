@@ -1,9 +1,12 @@
 package com.lti.entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -49,7 +52,7 @@ public class Candidate {
 	private String feedback;
 	
 	@Column(name="rating")
-	private long rating;
+	private double rating;
 	
 	@Column(name="status")
 	private SelStatus selStatus;
@@ -58,7 +61,8 @@ public class Candidate {
 	private long level;
 	
 	@Column(name="skills")
-	private String skills;
+	@ElementCollection
+	private List<String> skills = new ArrayList<String>();
 	
 	//@OneToOne(mappedBy = "intId.candidate",cascade = CascadeType.ALL)
 	//private Interview interview;
@@ -135,11 +139,11 @@ public class Candidate {
 		this.feedback = feedback;
 	}
 
-	public long getRating() {
+	public double getRating() {
 		return rating;
 	}
 
-	public void setRating(long rating) {
+	public void setRating(double rating) {
 		this.rating = rating;
 	}
 
@@ -159,14 +163,14 @@ public class Candidate {
 		this.level = level;
 	}
 
-	public String getSkills() {
+	public List<String> getSkills() {
 		return skills;
 	}
 
-	public void setSkills(String skills) {
+	public void setSkills(List<String> skills) {
 		this.skills = skills;
 	}
-
+	
 	/*public Interview getInterview() {
 		return interview;
 	}

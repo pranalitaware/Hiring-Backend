@@ -98,9 +98,11 @@ public class UserService {
 		}
 	}
 
-	public void login(long pid, String password) {
+	public Panellist login(long pid, String password) {
 		try {
-			userRepository.fetchIdByLoginIdAndPassword(pid,password);
+			long id = userRepository.fetchIdByLoginIdAndPassword(pid,password);
+			Panellist panellist = userRepository.find(Panellist.class, id);
+			return panellist;
 		}
 		catch(EmptyResultDataAccessException e) {
 			throw new ServiceException("Invalid Id/password");

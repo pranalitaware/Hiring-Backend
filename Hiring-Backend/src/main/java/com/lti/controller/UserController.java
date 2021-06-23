@@ -16,6 +16,7 @@ import com.lti.entity.Candidate;
 import com.lti.entity.Panellist;
 import com.lti.model.CanListStatus;
 import com.lti.model.CandidateStatus;
+import com.lti.model.Login;
 //import com.lti.model.IntStatus;
 import com.lti.model.Status;
 import com.lti.service.ServiceException;
@@ -201,5 +202,23 @@ public class UserController {
 			return status;
 		}
 		
+	}
+	
+	@PostMapping("/userlogin")
+	public Status login(@RequestBody Login login) {
+		try {
+			userService.login(login.getPid(), login.getPassword());
+			Status loginStatus = new Status();
+			loginStatus.setStatus(true);
+			loginStatus.setMessage("Login successfull!");
+			
+			return loginStatus;
+		}
+		catch(ServiceException e) {
+			Status loginStatus = new Status();
+			loginStatus.setStatus(false);
+			loginStatus.setMessage(e.getMessage());		
+			return loginStatus;
+		}
 	}
 }

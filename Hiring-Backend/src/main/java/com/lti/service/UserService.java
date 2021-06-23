@@ -98,6 +98,15 @@ public class UserService {
 		}
 	}
 
+	public void login(long pid, String password) {
+		try {
+			userRepository.fetchIdByLoginIdAndPassword(pid,password);
+		}
+		catch(EmptyResultDataAccessException e) {
+			throw new ServiceException("Invalid Id/password");
+		}
+	}
+
 /*	public void mapCanPan(Interview interview) {
 
 		userRepository.save(interview);

@@ -57,4 +57,13 @@ public class UserRepository extends GenericRepository {
 		.setParameter(2, cid)
 		.executeUpdate();
 	}
+
+	public long fetchIdByLoginIdAndPassword(long pid, String password) {
+		return (Long)
+				entityManager
+				.createQuery("select p.pid from Panellist p where p.pid = :pi and p.password= :pw")
+				.setParameter("pi", pid)
+				.setParameter("pw", password)
+				.getSingleResult();
+	}
 }
